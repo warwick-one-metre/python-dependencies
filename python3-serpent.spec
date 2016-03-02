@@ -22,7 +22,6 @@ Url:            UNKNOWN
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/source/s/serpent/serpent-%{version}.tar.gz
 Requires:       python3
-BuildRequires:  python-py2pack
 BuildArch:      noarch
 
 %description

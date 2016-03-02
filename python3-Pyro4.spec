@@ -25,7 +25,6 @@ Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/source/P/Pyro4/Pyro4-%{version}.tar.gz
 BuildRequires:  python3-devel
 Requires:       python3-serpent
-BuildRequires:  python-py2pack
 BuildArch:      noarch
 
 %description
