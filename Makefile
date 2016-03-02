@@ -4,7 +4,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build" \
         --define "_srcrpmdir %{_topdir}" \
         --define "_sourcedir %(pwd)"
 
-all: serpent pyro4 demjson
+all: serpent pyro4 demjson pyephem
 
 serpent:
 	mkdir -p build
@@ -24,5 +24,12 @@ demjson:
 	mkdir -p build
 	py2pack fetch demjson 2.2.4
 	${RPMBUILD} -ba python3-demjson.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+pyephem:
+	mkdir -p build
+	py2pack fetch pyephem 3.7.6.0
+	${RPMBUILD} -ba python3-pyephem.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
