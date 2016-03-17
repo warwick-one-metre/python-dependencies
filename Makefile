@@ -4,7 +4,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build" \
         --define "_srcrpmdir %{_topdir}" \
         --define "_sourcedir %(pwd)"
 
-all: serpent pyro4 demjson pyephem sysv_ipc
+all: serpent pyro4 demjson pyephem sysv_ipc pyds9
 
 serpent:
 	mkdir -p build
@@ -38,5 +38,12 @@ sysv_ipc:
 	mkdir -p build
 	py2pack fetch sysv_ipc 0.7.0
 	${RPMBUILD} -ba python3-sysv_ipc.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+pyds9:
+	mkdir -p build
+	wget -N https://github.com/ericmandel/pyds9/archive/v1.8.1.zip
+	${RPMBUILD} -ba python3-pyds9.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
