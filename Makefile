@@ -4,7 +4,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build" \
         --define "_srcrpmdir %{_topdir}" \
         --define "_sourcedir %(pwd)"
 
-all: serpent pyro4 demjson pyephem sysv_ipc pyds9 astropy
+all: serpent pyro4 demjson pyephem sysv_ipc pyds9 astropy sep
 
 serpent:
 	mkdir -p build
@@ -52,5 +52,12 @@ astropy:
 	mkdir -p build
 	py2pack fetch astropy 1.1.2
 	${RPMBUILD} -ba python3-astropy.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+sep:
+	mkdir -p build
+	py2pack fetch sep 0.5.2
+	${RPMBUILD} -ba python3-sep.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
