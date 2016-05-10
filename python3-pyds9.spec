@@ -14,7 +14,7 @@
 
 Name:           python3-pyds9
 Version:        1.8.1
-Release:        0
+Release:        1
 License:        GPL2
 Summary:        Python connection to ds9 via XPA
 Url:            https://github.com/ericmandel/pyds9/
