@@ -61,3 +61,10 @@ sep:
 	${RPMBUILD} -ba python3-sep.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
+
+pymysql:
+	mkdir -p build
+	py2pack fetch PyMySQL 0.7.9
+	${RPMBUILD} -ba python3-PyMySQL.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
