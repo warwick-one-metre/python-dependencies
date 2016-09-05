@@ -15,7 +15,7 @@ serpent:
 
 pyro4:
 	mkdir -p build
-	py2pack fetch Pyro4 4.41
+	py2pack fetch Pyro4 4.45
 	${RPMBUILD} -ba python3-Pyro4.spec
 	mv build/noarch/*.rpm .
 	rm -rf build

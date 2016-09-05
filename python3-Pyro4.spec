@@ -16,7 +16,7 @@
 
 
 Name:           python3-Pyro4
-Version:        4.41
+Version:        4.45
 Release:        0
 License:        MIT
 Summary:        distributed object middleware for Python (RPC)
