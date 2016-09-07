@@ -68,3 +68,33 @@ pymysql:
 	${RPMBUILD} -ba python3-PyMySQL.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
+
+# All needed for Flask
+
+Werkzeug:
+	mkdir -p build
+	py2pack fetch Werkzeug 0.11.11
+	${RPMBUILD} -ba python3-Werkzeug.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+itsdangerous:
+	mkdir -p build
+	py2pack fetch itsdangerous 0.24
+	${RPMBUILD} -ba python3-itsdangerous.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+click:
+	mkdir -p build
+	py2pack fetch click 6.6
+	${RPMBUILD} -ba python3-click.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+Flask:
+	mkdir -p build
+	py2pack fetch Flask 0.11.1
+	${RPMBUILD} -ba python3-Flask.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
