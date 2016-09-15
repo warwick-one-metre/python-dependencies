@@ -98,3 +98,18 @@ Flask:
 	${RPMBUILD} -ba python3-Flask.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
+
+Flask-OAuthlib:
+	mkdir -p build
+	py2pack fetch Flask-OAuthlib 0.9.3
+	${RPMBUILD} -ba python3-Flask-OAuthlib.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+oauthlib:
+	mkdir -p build
+	py2pack fetch oauthlib 2.0.0
+	${RPMBUILD} -ba python3-oauthlib.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
