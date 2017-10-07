@@ -13,7 +13,7 @@
 # published by the Open Source Initiative.
 
 
-Name:           python3-sysv_ipc
+Name:           python34-sysv_ipc
 Version:        0.7.0
 Release:        0
 License:        http://creativecommons.org/licenses/BSD/
@@ -21,8 +21,8 @@ Summary:        System V IPC primitives (semaphores, shared memory and message q
 Url:            http://semanchuk.com/philip/sysv_ipc/
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/source/s/sysv_ipc/sysv_ipc-%{version}.tar.gz
-BuildRequires:  python-devel
-BuildArch:      noarch
+BuildRequires:  python34-devel
+BuildArch:      x86_64
 
 %description
 Sysv_ipc gives Python programs access to System V semaphores, shared memory 

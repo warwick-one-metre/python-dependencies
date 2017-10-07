@@ -13,7 +13,7 @@
 # published by the Open Source Initiative.
 
 
-Name:           python3-serpent
+Name:           python34-serpent
 Version:        1.12
 Release:        0
 License:        MIT
@@ -21,7 +21,8 @@ Summary:        Serialization based on astliteral_eval
 Url:            UNKNOWN
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/source/s/serpent/serpent-%{version}.tar.gz
-Requires:       python3
+Requires:       python34
+BuildRequires:  python34-devel
 BuildArch:      noarch
 
 %description

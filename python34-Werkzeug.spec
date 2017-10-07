@@ -15,7 +15,7 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 
 
-Name:           python3-Werkzeug
+Name:           python34-Werkzeug
 Version:        0.11.11
 Release:        0
 License:        BSD
@@ -23,7 +23,7 @@ Summary:        The Swiss Army knife of Python web development
 Url:            http://werkzeug.pocoo.org/
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/43/2e/d822b4a4216804519ace92e0368dcfc4b0b2887462d852fdd476b253ecc9/Werkzeug-%{version}.tar.gz
-BuildRequires:  python3-devel
+BuildRequires:  python34-devel
 BuildArch:      noarch
 
 %description

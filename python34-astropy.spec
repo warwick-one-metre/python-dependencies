@@ -1,5 +1,5 @@
 #
-# spec file for package python-sep
+# spec file for package python-astropy
 #
 # Copyright (c) 2016 SUSE LINUX Products GmbH, Nuernberg, Germany.
 #
@@ -12,22 +12,27 @@
 # license that conforms to the Open Source Definition (Version 1.9)
 # published by the Open Source Initiative.
 
-Name:           python3-sep
-Version:        0.5.2
+Name:           python34-astropy
+Version:        1.1.2
 Release:        0
-License:        LGPL-3.0+
-Summary:        Astronomical source extraction and photometry library
-Url:            https://github.com/kbarbary/sep
+License:        BSD
+Summary:        Community-developed python astronomy tools
+Url:            http://astropy.org
 Group:          Development/Languages/Python
-Source:         https://pypi.python.org/packages/35/51/66f6f441d8b85b2c5b32b0ca768737f3dd45c321a86f96d9b86054caf8fe/sep-%{version}.tar.gz
-BuildRequires:  python3-devel
-BuildArch:      noarch
+Source:         https://pypi.python.org/packages/source/a/astropy/astropy-%{version}.tar.gz
+BuildRequires:  python34-devel
+BuildRequires:  python34-numpy
+Requires:       python34-numpy
+BuildArch:      x86_64
 
 %description
-http://sep.readthedocs.org
+Astropy is a package intended to contain core functionality and some
+common tools needed for performing astronomy and astrophysics research with
+Python. It also provides an index for other astronomy packages and tools for
+managing them.
 
 %prep
-%setup -q -n sep-%{version}
+%setup -q -n astropy-%{version}
 
 %build
 python3 setup.py build
@@ -38,5 +43,6 @@ python3 setup.py install --prefix=%{_prefix} --root=%{buildroot}
 %files
 %defattr(-,root,root,-)
 %{python3_sitearch}/*
+/usr/bin/*
 
 %changelog

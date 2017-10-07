@@ -1,7 +1,7 @@
 #
-# spec file for package python3-PyMySQL
+# spec file for package python-pyserial
 #
-# Copyright (c) 2016 SUSE LINUX Products GmbH, Nuernberg, Germany.
+# Copyright (c) 2017 SUSE LINUX GmbH, Nuernberg, Germany.
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -15,25 +15,37 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 
 
-Name:           python3-PyMySQL
-Version:        0.7.9
+Name:           python34-pyserial
+Version:        3.4
 Release:        0
-License:        MIT
-Summary:        Pure Python MySQL Driver
-Url:            https://github.com/PyMySQL/PyMySQL/
+License:        BSD (FIXME:No SPDX)
+Summary:        Python Serial Port Extension
+Url:            https://github.com/pyserial/pyserial
 Group:          Development/Languages/Python
-Source:         https://pypi.python.org/packages/a4/c4/c15457f261fda9839637de044eca9b6da8f55503183fe887523801b85701/PyMySQL-%{version}.tar.gz
-BuildRequires:  python3-devel
+Source:         https://files.pythonhosted.org/packages/source/p/pyserial/pyserial-%{version}.tar.gz
+BuildRequires:  python34-devel
+BuildRequires:  python34-setuptools
+BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
 
 %description
-UNKNOWN
+Python Serial Port Extension for Win32, OSX, Linux, BSD, Jython, IronPython
+
+Stable:
+
+- Documentation: http://pythonhosted.org/pyserial/
+- Download Page: https://pypi.python.org/pypi/pyserial
+
+Latest:
+
+- Documentation: http://pyserial.readthedocs.io/en/latest/
+- Project Homepage: https://github.com/pyserial/pyserial
 
 
 
 
 %prep
-%setup -q -n PyMySQL-%{version}
+%setup -q -n pyserial-%{version}
 
 %build
 python3 setup.py build
@@ -41,11 +53,11 @@ python3 setup.py build
 %install
 python3 setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
-%check
-
 %files
+%defattr(0755,root,root,-)
+/usr/bin/miniterm.py
 %defattr(-,root,root,-)
-%doc LICENSE README.rst CHANGELOG
 %{python3_sitelib}/*
+
 
 %changelog

@@ -15,7 +15,7 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 
 
-Name:           python3-Flask-OAuthlib
+Name:           python34-Flask-OAuthlib
 Version:        0.9.3
 Release:        1
 License:        BSD
@@ -23,8 +23,8 @@ Summary:        OAuthlib for Flask
 Url:            https://github.com/lepture/flask-oauthlib
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/82/14/0d1a39ab2cc5aa2519b51dca9d253d38f2c1296d66529e08f8c7fd36aaa1/Flask-OAuthlib-%{version}.tar.gz
-BuildRequires:  python3-devel
-Requires: python3-oauthlib
+BuildRequires:  python34-devel
+Requires: python34-oauthlib
 BuildArch:      noarch
 
 %description

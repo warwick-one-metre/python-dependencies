@@ -15,7 +15,7 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 
 
-Name:           python3-Flask
+Name:           python34-Flask
 Version:        0.11.1
 Release:        0
 License:        BSD
@@ -23,15 +23,15 @@ Summary:        A microframework based on Werkzeug, Jinja2 and good intentions
 Url:            http://github.com/pallets/flask/
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/55/8a/78e165d30f0c8bb5d57c429a30ee5749825ed461ad6c959688872643ffb3/Flask-%{version}.tar.gz
-BuildRequires:  python3-devel
-BuildRequires:  python3-Werkzeug >= 0.7
-Requires:       python3-Werkzeug >= 0.7
-BuildRequires:  python3-Jinja2 >= 2.4
-Requires:       python3-Jinja2 >= 2.4
-BuildRequires:  python3-itsdangerous >= 0.21
-Requires:       python3-itsdangerous >= 0.21
-BuildRequires:  python3-click >= 2.0
-Requires:       python3-click >= 2.0
+BuildRequires:  python34-devel
+BuildRequires:  python34-Werkzeug >= 0.7
+Requires:       python34-Werkzeug >= 0.7
+BuildRequires:  python34-Jinja2 >= 2.4
+Requires:       python34-Jinja2 >= 2.4
+BuildRequires:  python34-itsdangerous >= 0.21
+Requires:       python34-itsdangerous >= 0.21
+BuildRequires:  python34-click >= 2.0
+Requires:       python34-click >= 2.0
 BuildArch:      noarch
 
 %description

@@ -12,7 +12,7 @@
 # license that conforms to the Open Source Definition (Version 1.9)
 # published by the Open Source Initiative.
 
-Name:           python3-pyds9
+Name:           python34-pyds9
 Version:        1.8.1
 Release:        1
 License:        GPL2
@@ -20,8 +20,8 @@ Summary:        Python connection to ds9 via XPA
 Url:            https://github.com/ericmandel/pyds9/
 Group:          Development/Languages/Python
 Source:         https://github.com/ericmandel/pyds9/archive/v1.8.1.zip
-BuildRequires:  python3-devel, libXt-devel
-BuildArch:      noarch
+BuildRequires:  python34-devel, libXt-devel
+BuildArch:      x86_64
 
 %description
 The XPA messaging system provides seamless communication between many kinds of Unix programs, including Tcl/Tk programs such as ds9. The pyds9 module uses a Python interface to XPA to communicate with ds9. It supports communication with all of ds9's XPA access points. See http://hea-www.harvard.edu/saord/ds9/ref/xpa.html for more info.

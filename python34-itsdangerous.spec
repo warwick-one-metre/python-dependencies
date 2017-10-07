@@ -15,7 +15,7 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 
 
-Name:           python3-itsdangerous
+Name:           python34-itsdangerous
 Version:        0.24
 Release:        0
 License:        UNKNOWN
@@ -23,7 +23,7 @@ Summary:        Various helpers to pass trusted data to untrusted environments a
 Url:            http://github.com/mitsuhiko/itsdangerous
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/dc/b4/a60bcdba945c00f6d608d8975131ab3f25b22f2bcfe1dab221165194b2d4/itsdangerous-%{version}.tar.gz
-BuildRequires:  python3-devel
+BuildRequires:  python34-devel
 BuildArch:      noarch
 
 %description

@@ -15,7 +15,7 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 
 
-Name:           python3-oauthlib
+Name:           python34-oauthlib
 Version:        2.0.0
 Release:        0
 License:        BSD
@@ -23,7 +23,7 @@ Summary:        A generic, spec-compliant, thorough implementation of the OAuth 
 Url:            https://github.com/idan/oauthlib
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/ce/92/7f07412a4f04e55c1e83a09c6fd48075b5df96c1dbd4078c3407c5be1dff/oauthlib-%{version}.tar.gz
-BuildRequires:  python3-devel
+BuildRequires:  python34-devel
 BuildArch:      noarch
 
 %description

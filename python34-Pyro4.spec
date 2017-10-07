@@ -15,7 +15,7 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 
 
-Name:           python3-Pyro4
+Name:           python34-Pyro4
 Version:        4.45
 Release:        0
 License:        MIT
@@ -23,8 +23,8 @@ Summary:        distributed object middleware for Python (RPC)
 Url:            http://pythonhosted.org/Pyro4/
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/source/P/Pyro4/Pyro4-%{version}.tar.gz
-BuildRequires:  python3-devel
-Requires:       python3-serpent
+BuildRequires:  python34-devel
+Requires:       python34-serpent
 BuildArch:      noarch
 
 %description

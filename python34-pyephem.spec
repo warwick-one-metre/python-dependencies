@@ -13,7 +13,7 @@
 # published by the Open Source Initiative.
 
 
-Name:           python3-pyephem
+Name:           python34-pyephem
 Version:        3.7.6.0
 Release:        0
 License:        LGPL
@@ -21,8 +21,8 @@ Summary:        Compute positions of the planets and stars
 Url:            http://rhodesmill.org/pyephem/
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/source/p/pyephem/pyephem-%{version}.tar.gz
-BuildRequires:  python3-devel
-BuildArch:      noarch
+BuildRequires:  python34-devel
+BuildArch:      x86_64
 
 %description
 ==============

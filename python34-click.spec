@@ -15,7 +15,7 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 
 
-Name:           python3-click
+Name:           python34-click
 Version:        6.6
 Release:        0
 License:        UNKNOWN
@@ -23,7 +23,7 @@ Summary:        A simple wrapper around optparse for powerful command line utili
 Url:            http://github.com/mitsuhiko/click
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-%{version}.tar.gz
-BuildRequires:  python3-devel
+BuildRequires:  python34-devel
 BuildArch:      noarch
 
 %description

@@ -13,7 +13,7 @@
 # published by the Open Source Initiative.
 
 
-Name:           python3-demjson
+Name:           python34-demjson
 Version:        2.2.4
 Release:        0
 License:        GNU LGPL 3.0
@@ -21,7 +21,7 @@ Summary:        encoder, decoder, and lint/validator for JSON (JavaScript Object
 Url:            http://deron.meranda.us/python/demjson/
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/source/d/demjson/demjson-%{version}.tar.gz
-BuildRequires:  python3-devel
+BuildRequires:  python34-devel
 BuildArch:      noarch
 
 %description
