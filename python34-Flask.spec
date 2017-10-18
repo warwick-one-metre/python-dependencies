@@ -24,13 +24,9 @@ Url:            http://github.com/pallets/flask/
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/55/8a/78e165d30f0c8bb5d57c429a30ee5749825ed461ad6c959688872643ffb3/Flask-%{version}.tar.gz
 BuildRequires:  python34-devel
-BuildRequires:  python34-Werkzeug >= 0.7
 Requires:       python34-Werkzeug >= 0.7
-BuildRequires:  python34-Jinja2 >= 2.4
 Requires:       python34-Jinja2 >= 2.4
-BuildRequires:  python34-itsdangerous >= 0.21
 Requires:       python34-itsdangerous >= 0.21
-BuildRequires:  python34-click >= 2.0
 Requires:       python34-click >= 2.0
 BuildArch:      noarch
 

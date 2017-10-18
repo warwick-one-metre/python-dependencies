@@ -8,7 +8,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # Generate spec files for new packages using:
 # py2pack generate -t opensuse-legacy.spec <package name> <package version>
 # then rename and modify spec file to use python3 and depend on python34-*
-all: serpent pyro4 demjson pyephem sysv_ipc pyds9 astropy sep pyserial pymysql
+all: serpent pyro4 demjson pyephem sysv_ipc pyds9 astropy sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2
 
 serpent:
 	mkdir -p build
@@ -85,42 +85,49 @@ pyserial:
 Werkzeug:
 	mkdir -p build
 	py2pack fetch Werkzeug 0.11.11
-	${RPMBUILD} -ba python3-Werkzeug.spec
+	${RPMBUILD} -ba python34-Werkzeug.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 itsdangerous:
 	mkdir -p build
 	py2pack fetch itsdangerous 0.24
-	${RPMBUILD} -ba python3-itsdangerous.spec
+	${RPMBUILD} -ba python34-itsdangerous.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 click:
 	mkdir -p build
 	py2pack fetch click 6.6
-	${RPMBUILD} -ba python3-click.spec
+	${RPMBUILD} -ba python34-click.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 Flask:
 	mkdir -p build
 	py2pack fetch Flask 0.11.1
-	${RPMBUILD} -ba python3-Flask.spec
+	${RPMBUILD} -ba python34-Flask.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 Flask-OAuthlib:
 	mkdir -p build
 	py2pack fetch Flask-OAuthlib 0.9.3
-	${RPMBUILD} -ba python3-Flask-OAuthlib.spec
+	${RPMBUILD} -ba python34-Flask-OAuthlib.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+Jinja2:
+	mkdir -p build
+	py2pack fetch Jinja2 2.9.6
+	${RPMBUILD} -ba python34-Jinja2.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 oauthlib:
 	mkdir -p build
 	py2pack fetch oauthlib 2.0.0
-	${RPMBUILD} -ba python3-oauthlib.spec
+	${RPMBUILD} -ba python34-oauthlib.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
