@@ -16,7 +16,7 @@
 
 
 Name:           python34-Flask
-Version:        0.11.1
+Version:        0.12.2
 Release:        0
 License:        BSD
 Summary:        A microframework based on Werkzeug, Jinja2 and good intentions

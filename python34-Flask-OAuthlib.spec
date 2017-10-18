@@ -16,7 +16,7 @@
 
 
 Name:           python34-Flask-OAuthlib
-Version:        0.9.3
+Version:        0.9.4
 Release:        1
 License:        BSD
 Summary:        OAuthlib for Flask

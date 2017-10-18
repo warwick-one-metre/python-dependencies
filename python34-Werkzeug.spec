@@ -16,7 +16,7 @@
 
 
 Name:           python34-Werkzeug
-Version:        0.11.11
+Version:        0.12.2
 Release:        0
 License:        BSD
 Summary:        The Swiss Army knife of Python web development

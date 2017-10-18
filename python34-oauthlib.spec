@@ -16,7 +16,7 @@
 
 
 Name:           python34-oauthlib
-Version:        2.0.0
+Version:        2.0.4
 Release:        0
 License:        BSD
 Summary:        A generic, spec-compliant, thorough implementation of the OAuth request-signing logic

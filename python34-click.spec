@@ -16,7 +16,7 @@
 
 
 Name:           python34-click
-Version:        6.6
+Version:        6.7
 Release:        0
 License:        UNKNOWN
 Summary:        A simple wrapper around optparse for powerful command line utilities

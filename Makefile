@@ -84,7 +84,7 @@ pyserial:
 
 Werkzeug:
 	mkdir -p build
-	py2pack fetch Werkzeug 0.11.11
+	py2pack fetch Werkzeug 0.12.2
 	${RPMBUILD} -ba python34-Werkzeug.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
@@ -98,21 +98,21 @@ itsdangerous:
 
 click:
 	mkdir -p build
-	py2pack fetch click 6.6
+	py2pack fetch click 6.7
 	${RPMBUILD} -ba python34-click.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 Flask:
 	mkdir -p build
-	py2pack fetch Flask 0.11.1
+	py2pack fetch Flask 0.12.2
 	${RPMBUILD} -ba python34-Flask.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 Flask-OAuthlib:
 	mkdir -p build
-	py2pack fetch Flask-OAuthlib 0.9.3
+	py2pack fetch Flask-OAuthlib 0.9.4
 	${RPMBUILD} -ba python34-Flask-OAuthlib.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
@@ -126,7 +126,7 @@ Jinja2:
 
 oauthlib:
 	mkdir -p build
-	py2pack fetch oauthlib 2.0.0
+	py2pack fetch oauthlib 2.0.4
 	${RPMBUILD} -ba python34-oauthlib.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
