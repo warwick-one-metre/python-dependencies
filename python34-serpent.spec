@@ -14,7 +14,7 @@
 
 
 Name:           python34-serpent
-Version:        1.12
+Version:        1.23
 Release:        0
 License:        MIT
 Summary:        Serialization based on astliteral_eval

@@ -12,7 +12,7 @@ all: serpent pyro4 demjson pyephem sysv_ipc pyds9 astropy sep pyserial pymysql F
 
 serpent:
 	mkdir -p build
-	py2pack fetch serpent 1.12
+	py2pack fetch serpent 1.23
 	${RPMBUILD} -ba python34-serpent.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
