@@ -16,7 +16,7 @@
 
 
 Name:           python34-PyMySQL
-Version:        0.7.9
+Version:        0.7.11
 Release:        0
 License:        MIT
 Summary:        Pure Python MySQL Driver

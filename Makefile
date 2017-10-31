@@ -68,7 +68,7 @@ sep:
 
 pymysql:
 	mkdir -p build
-	py2pack fetch PyMySQL 0.7.9
+	py2pack fetch PyMySQL 0.7.11
 	${RPMBUILD} -ba python34-PyMySQL.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
