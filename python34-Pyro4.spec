@@ -16,7 +16,7 @@
 
 
 Name:           python34-Pyro4
-Version:        4.45
+Version:        4.63
 Release:        0
 License:        MIT
 Summary:        distributed object middleware for Python (RPC)
