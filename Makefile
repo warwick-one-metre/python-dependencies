@@ -54,7 +54,7 @@ pyds9:
 
 astropy:
 	mkdir -p build
-	py2pack fetch astropy 1.1.2
+	py2pack fetch astropy 2.0.2
 	${RPMBUILD} -ba python34-astropy.spec
 	mv build/x86_64/*.rpm .
 	rm -rf build

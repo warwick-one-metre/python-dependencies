@@ -13,7 +13,7 @@
 # published by the Open Source Initiative.
 
 Name:           python34-astropy
-Version:        1.1.2
+Version:        2.0.2
 Release:        0
 License:        BSD
 Summary:        Community-developed python astronomy tools
