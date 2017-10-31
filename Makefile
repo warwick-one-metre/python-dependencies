@@ -61,7 +61,7 @@ astropy:
 
 sep:
 	mkdir -p build
-	py2pack fetch sep 0.5.2
+	py2pack fetch sep 1.0.1
 	${RPMBUILD} -ba python34-sep.spec
 	mv build/x86_64/*.rpm .
 	rm -rf build

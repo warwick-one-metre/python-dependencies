@@ -13,7 +13,7 @@
 # published by the Open Source Initiative.
 
 Name:           python34-sep
-Version:        0.5.2
+Version:        1.0.1
 Release:        0
 License:        LGPL-3.0+
 Summary:        Astronomical source extraction and photometry library
