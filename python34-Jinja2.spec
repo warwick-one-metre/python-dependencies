@@ -18,7 +18,7 @@
 
 Name:           python34-Jinja2
 Version:        2.9.6
-Release:        0
+Release:        1
 License:        BSD (FIXME:No SPDX)
 Summary:        A small but fast and easy to use stand-alone template engine written in pure python
 Url:            http://jinja.pocoo.org/
@@ -26,6 +26,7 @@ Group:          Development/Languages/Python
 Source:         https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-%{version}.tar.gz
 BuildRequires:  python34-devel
 BuildRequires:  python34-setuptools
+Requires:       python34-MarkupSafe >= 0.23
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
 

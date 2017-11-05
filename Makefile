@@ -8,7 +8,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # Generate spec files for new packages using:
 # py2pack generate -t opensuse-legacy.spec <package name> <package version>
 # then rename and modify spec file to use python3 and depend on python34-*
-all: serpent pyro4 demjson pyephem sysv_ipc pyds9 astropy sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2
+all: serpent pyro4 demjson pyephem sysv_ipc pyds9 astropy sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe
 
 serpent:
 	mkdir -p build
@@ -122,6 +122,13 @@ Jinja2:
 	py2pack fetch Jinja2 2.9.6
 	${RPMBUILD} -ba python34-Jinja2.spec
 	mv build/noarch/*.rpm .
+	rm -rf build
+
+MarkupSafe:
+	mkdir -p build
+	py2pack fetch MarkupSafe 1.0
+	${RPMBUILD} -ba python34-MarkupSafe.spec
+	mv build/x86_64/*.rpm .
 	rm -rf build
 
 oauthlib:
