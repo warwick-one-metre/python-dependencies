@@ -14,6 +14,7 @@
 
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 
+%define debug_package %{nil}
 
 Name:           python34-Pillow
 Version:        4.3.0
