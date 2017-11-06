@@ -8,7 +8,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # Generate spec files for new packages using:
 # py2pack generate -t opensuse-legacy.spec <package name> <package version>
 # then rename and modify spec file to use python3 and depend on python34-*
-all: serpent pyro4 demjson pyephem sysv_ipc pyds9 astropy sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe
+all: serpent pyro4 demjson pyephem sysv_ipc pyds9 astropy sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe Pillow
 
 serpent:
 	mkdir -p build
@@ -136,5 +136,12 @@ oauthlib:
 	py2pack fetch oauthlib 2.0.4
 	${RPMBUILD} -ba python34-oauthlib.spec
 	mv build/noarch/*.rpm .
+	rm -rf build
+
+Pillow:
+	mkdir -p build
+	py2pack fetch Pillow 4.3.0
+	${RPMBUILD} -ba python34-Pillow.spec
+	mv build/x86_64/*.rpm .
 	rm -rf build
 
