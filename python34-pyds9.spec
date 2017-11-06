@@ -14,13 +14,14 @@
 
 Name:           python34-pyds9
 Version:        1.8.1
-Release:        1
+Release:        3
 License:        GPL2
 Summary:        Python connection to ds9 via XPA
 Url:            https://github.com/ericmandel/pyds9/
 Group:          Development/Languages/Python
 Source:         https://github.com/ericmandel/pyds9/archive/v1.8.1.zip
 BuildRequires:  python34-devel, libXt-devel
+Requires:       python34-six
 BuildArch:      x86_64
 
 %description
