@@ -1,27 +1,12 @@
-#
-# spec file for package python-sysv_ipc
-#
-# Copyright (c) 2016 SUSE LINUX Products GmbH, Nuernberg, Germany.
-#
-# All modifications and additions to the file contributed by third parties
-# remain the property of their copyright owners, unless otherwise agreed
-# upon. The license for this file, and modifications and additions to the
-# file, is the same license as for the pristine package itself (unless the
-# license for the pristine package is not an Open Source License, in which
-# case the license is the MIT License). An "Open Source License" is a
-# license that conforms to the Open Source Definition (Version 1.9)
-# published by the Open Source Initiative.
-
-
-Name:           python34-sysv_ipc
-Version:        0.7.0
+Name:           python36-sysv_ipc
+Version:        1.0.0
 Release:        0
 License:        http://creativecommons.org/licenses/BSD/
 Summary:        System V IPC primitives (semaphores, shared memory and message queues) for Python
 Url:            http://semanchuk.com/philip/sysv_ipc/
 Group:          Development/Languages/Python
 Source:         https://pypi.python.org/packages/source/s/sysv_ipc/sysv_ipc-%{version}.tar.gz
-BuildRequires:  python34-devel
+BuildRequires:  python36-devel
 BuildArch:      x86_64
 
 %description
@@ -42,13 +27,13 @@ http://semanchuk.com/philip/posix_ipc/
 %setup -q -n sysv_ipc-%{version}
 
 %build
-python3 setup.py build
+%{__python3_other} setup.py build
 
 %install
-python3 setup.py install --prefix=%{_prefix} --root=%{buildroot}
+%{__python3_other} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{python3_sitearch}/*
+%{python3_other_sitearch}/*
 
 %changelog
