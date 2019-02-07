@@ -14,8 +14,10 @@ yum -y install python3-rpm-macros python36 python36-devel python36-setuptools
 
 # Run make command as the default user so that generated files aren't owned by root
 # Other packages depend on numpy, so make it manually first
-su hostuser -c "make numpy"
+su hostuser -c "make prereq"
 rpm -i python36-numpy-*.rpm
+rpm -i python36-serpent-*.rpm
+
 su hostuser -c "make py36"
 
 # Legacy packages

@@ -7,10 +7,11 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
         --undefine=_disable_source_fetch
 
 # Generate spec files for new packages using:
-# py2pack generate -t opensuse-legacy.spec <package name> <package version>
-# then rename and modify spec file to use python3 and depend on python34-*
-py36: astropy six pyds9
-py34: serpent pyro4 demjson pyephem sysv_ipc  sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe Pillow jsonschema strict-rfc3339 pytesseract
+# py2pack generate -t fedora.spec <package name> <package version>
+# then rename and modify spec file to use match the others in the repository
+prereq: numpy serpent
+py36: astropy six pyds9 pyro4
+py34: demjson pyephem sysv_ipc sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe Pillow jsonschema strict-rfc3339 pytesseract
 
 numpy:
 	mkdir -p build
@@ -38,15 +39,13 @@ pyds9:
 
 serpent:
 	mkdir -p build
-	py2pack fetch serpent 1.23
-	${RPMBUILD} -ba python34-serpent.spec
+	${RPMBUILD} -ba python36-serpent.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 pyro4:
 	mkdir -p build
-	py2pack fetch Pyro4 4.63
-	${RPMBUILD} -ba python34-Pyro4.spec
+	${RPMBUILD} -ba python36-Pyro4.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
