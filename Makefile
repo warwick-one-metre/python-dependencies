@@ -10,8 +10,8 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # py2pack generate -t fedora.spec <package name> <package version>
 # then rename and modify spec file to use match the others in the repository
 prereq: numpy serpent
-py36: astropy six pyds9 pyro4
-py34: demjson pyephem sysv_ipc sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe Pillow jsonschema strict-rfc3339 pytesseract
+py36: astropy six pyds9 pyro4 sep
+py34: demjson pyephem sysv_ipc pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe Pillow jsonschema strict-rfc3339 pytesseract
 
 numpy:
 	mkdir -p build
@@ -49,6 +49,12 @@ pyro4:
 	mv build/noarch/*.rpm .
 	rm -rf build
 
+sep:
+	mkdir -p build
+	${RPMBUILD} -ba python36-sep.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+
 demjson:
 	mkdir -p build
 	py2pack fetch demjson 2.2.4
@@ -67,13 +73,6 @@ sysv_ipc:
 	mkdir -p build
 	py2pack fetch sysv_ipc 0.7.0
 	${RPMBUILD} -ba python34-sysv_ipc.spec
-	mv build/x86_64/*.rpm .
-	rm -rf build
-
-sep:
-	mkdir -p build
-	py2pack fetch sep 1.0.1
-	${RPMBUILD} -ba python34-sep.spec
 	mv build/x86_64/*.rpm .
 	rm -rf build
 
