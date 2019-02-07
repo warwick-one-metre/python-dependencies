@@ -1,21 +1,4 @@
-#
-# spec file for package python-strict-rfc3339
-#
-# Copyright (c) 2018 SUSE LINUX GmbH, Nuernberg, Germany.
-#
-# All modifications and additions to the file contributed by third parties
-# remain the property of their copyright owners, unless otherwise agreed
-# upon. The license for this file, and modifications and additions to the
-# file, is the same license as for the pristine package itself (unless the
-# license for the pristine package is not an Open Source License, in which
-# case the license is the MIT License). An "Open Source License" is a
-# license that conforms to the Open Source Definition (Version 1.9)
-# published by the Open Source Initiative.
-
-# Please submit bugfixes or comments via http://bugs.opensuse.org/
-
-
-Name:           python34-strict-rfc3339
+Name:           python36-strict-rfc3339
 Version:        0.7
 Release:        0
 License:        GNU General Public License Version 3 (FIXME:No SPDX)
@@ -23,9 +6,8 @@ Summary:        Strict, simple, lightweight RFC3339 functions
 Url:            http://www.danielrichman.co.uk/libraries/strict-rfc3339.html
 Group:          Development/Languages/Python
 Source:         https://files.pythonhosted.org/packages/source/s/strict-rfc3339/strict-rfc3339-%{version}.tar.gz
-BuildRequires:  python34-devel
-BuildRequires:  python34-setuptools
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+BuildRequires:  python36-devel
+BuildRequires:  python36-setuptools
 BuildArch:      noarch
 
 %description
@@ -169,13 +151,13 @@ Notes
 %setup -q -n strict-rfc3339-%{version}
 
 %build
-python3 setup.py build
+%{__python3_other} setup.py build
 
 %install
-python3 setup.py install --prefix=%{_prefix} --root=%{buildroot}
+%{__python3_other} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{python3_sitelib}/*
+%{python3_other_sitelib}/*
 
 %changelog

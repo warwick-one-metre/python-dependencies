@@ -1,21 +1,4 @@
-#
-# spec file for package python-jsonschema
-#
-# Copyright (c) 2018 SUSE LINUX GmbH, Nuernberg, Germany.
-#
-# All modifications and additions to the file contributed by third parties
-# remain the property of their copyright owners, unless otherwise agreed
-# upon. The license for this file, and modifications and additions to the
-# file, is the same license as for the pristine package itself (unless the
-# license for the pristine package is not an Open Source License, in which
-# case the license is the MIT License). An "Open Source License" is a
-# license that conforms to the Open Source Definition (Version 1.9)
-# published by the Open Source Initiative.
-
-# Please submit bugfixes or comments via http://bugs.opensuse.org/
-
-
-Name:           python34-jsonschema
+Name:           python36-jsonschema
 Version:        2.6.0
 Release:        0
 License:        MIT
@@ -23,9 +6,8 @@ Summary:        An implementation of JSON Schema validation for Python
 Url:            http://github.com/Julian/jsonschema
 Group:          Development/Languages/Python
 Source:         https://files.pythonhosted.org/packages/source/j/jsonschema/jsonschema-%{version}.tar.gz
-BuildRequires:  python34-devel
-BuildRequires:  python34-setuptools
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+BuildRequires:  python36-devel
+BuildRequires:  python36-setuptools
 BuildArch:      noarch
 
 %description
@@ -144,14 +126,14 @@ in my GitHub profile.
 %setup -q -n jsonschema-%{version}
 
 %build
-python3 setup.py build
+%{__python3_other} setup.py build
 
 %install
-python3 setup.py install --prefix=%{_prefix} --root=%{buildroot}
+%{__python3_other} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{python3_sitelib}/*
-/usr/bin/jsonschema
+%{python3_other_sitelib}/*
+%{_bindir}/jsonschema
 
 %changelog

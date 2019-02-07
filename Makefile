@@ -10,8 +10,8 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # py2pack generate -t fedora.spec <package name> <package version>
 # then rename and modify spec file to use match the others in the repository
 prereq: numpy serpent
-py36: astropy six pyds9 pyro4 sep demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql
-py34: Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe jsonschema strict-rfc3339
+py36: astropy six pyds9 pyro4 sep demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema
+py34: Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe
 
 numpy:
 	mkdir -p build
@@ -97,6 +97,18 @@ pymysql:
 	mv build/noarch/*.rpm .
 	rm -rf build
 
+strict-rfc3339:
+	mkdir -p build
+	${RPMBUILD} -ba python36-strict-rfc3339.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+jsonschema:
+	mkdir -p build
+	${RPMBUILD} -ba python36-jsonschema.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
 # All needed for Flask
 
 Werkzeug:
@@ -152,20 +164,6 @@ oauthlib:
 	mkdir -p build
 	py2pack fetch oauthlib 2.0.4
 	${RPMBUILD} -ba python34-oauthlib.spec
-	mv build/noarch/*.rpm .
-	rm -rf build
-
-jsonschema:
-	mkdir -p build
-	py2pack fetch jsonschema 2.6.0
-	${RPMBUILD} -ba python34-jsonschema.spec
-	mv build/noarch/*.rpm .
-	rm -rf build
-
-strict-rfc3339:
-	mkdir -p build
-	py2pack fetch strict-rfc3339 0.7
-	${RPMBUILD} -ba python34-strict-rfc3339.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
