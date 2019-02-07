@@ -9,9 +9,16 @@ adduser --uid "${USERID}" hostuser
 # Install dependencies
 yum -y clean all
 yum -y clean expire-cache
-yum -y install rpm-build gcc make git wget libXt-devel libjpeg-devel zlib-devel freetype-devel epel-release
-yum -y install python34-pip python34-devel python34-numpy
-pip3 install py2pack
+yum -y install rpm-build gcc make git wget unzip atlas-devel lapack-devel gcc-gfortran libquadmath libXt-devel libjpeg-devel zlib-devel freetype-devel epel-release
+yum -y install python3-rpm-macros python36 python36-devel python36-setuptools
 
 # Run make command as the default user so that generated files aren't owned by root
-su hostuser -c "make"
+# Other packages depend on numpy, so make it manually first
+su hostuser -c "make numpy"
+rpm -i python36-numpy-*.rpm
+su hostuser -c "make py36"
+
+# Legacy packages
+#yum -y install python34-pip python34-devel python34-numpy
+#pip3 install py2pack
+#su hostuser -c "make py34"

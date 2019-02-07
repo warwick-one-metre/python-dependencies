@@ -3,12 +3,26 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
         --define "_builddir %{_topdir}" \
         --define "_rpmdir %{_topdir}" \
         --define "_srcrpmdir %{_topdir}" \
-        --define "_sourcedir %(pwd)"
+        --define "_sourcedir %(pwd)" \
+        --undefine=_disable_source_fetch
 
 # Generate spec files for new packages using:
 # py2pack generate -t opensuse-legacy.spec <package name> <package version>
 # then rename and modify spec file to use python3 and depend on python34-*
-all: serpent pyro4 demjson pyephem sysv_ipc pyds9 astropy sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe Pillow six jsonschema strict-rfc3339 pytesseract
+py36: astropy
+py34: serpent pyro4 demjson pyephem sysv_ipc pyds9 sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe Pillow six jsonschema strict-rfc3339 pytesseract
+
+numpy:
+	mkdir -p build
+	${RPMBUILD} -ba python36-numpy.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+
+astropy:
+	mkdir -p build
+	${RPMBUILD} -ba python36-astropy.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
 
 serpent:
 	mkdir -p build
@@ -51,13 +65,6 @@ pyds9:
 	${RPMBUILD} -ba python34-pyds9.spec
 	mv build/x86_64/*.rpm .
 	rm -rf x86_64
-
-astropy:
-	mkdir -p build
-	py2pack fetch astropy 2.0.2
-	${RPMBUILD} -ba python34-astropy.spec
-	mv build/x86_64/*.rpm .
-	rm -rf build
 
 sep:
 	mkdir -p build
