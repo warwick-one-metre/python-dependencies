@@ -9,8 +9,8 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # Generate spec files for new packages using:
 # py2pack generate -t opensuse-legacy.spec <package name> <package version>
 # then rename and modify spec file to use python3 and depend on python34-*
-py36: astropy
-py34: serpent pyro4 demjson pyephem sysv_ipc pyds9 sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe Pillow six jsonschema strict-rfc3339 pytesseract
+py36: astropy six pyds9
+py34: serpent pyro4 demjson pyephem sysv_ipc  sep pyserial pymysql Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe Pillow jsonschema strict-rfc3339 pytesseract
 
 numpy:
 	mkdir -p build
@@ -23,6 +23,18 @@ astropy:
 	${RPMBUILD} -ba python36-astropy.spec
 	mv build/x86_64/*.rpm .
 	rm -rf build
+
+six:
+	mkdir -p build
+	${RPMBUILD} -ba python36-six.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+pyds9:
+	mkdir -p build
+	${RPMBUILD} -ba python36-pyds9.spec
+	mv build/x86_64/*.rpm .
+	rm -rf x86_64
 
 serpent:
 	mkdir -p build
@@ -58,13 +70,6 @@ sysv_ipc:
 	${RPMBUILD} -ba python34-sysv_ipc.spec
 	mv build/x86_64/*.rpm .
 	rm -rf build
-
-pyds9:
-	mkdir -p build
-	wget -N https://github.com/ericmandel/pyds9/archive/v1.8.1.zip
-	${RPMBUILD} -ba python34-pyds9.spec
-	mv build/x86_64/*.rpm .
-	rm -rf x86_64
 
 sep:
 	mkdir -p build
@@ -150,13 +155,6 @@ Pillow:
 	py2pack fetch Pillow 4.3.0
 	${RPMBUILD} -ba python34-Pillow.spec
 	mv build/x86_64/*.rpm .
-	rm -rf build
-
-six:
-	mkdir -p build
-	py2pack fetch six 1.11.0
-	${RPMBUILD} -ba python34-six.spec
-	mv build/noarch/*.rpm .
 	rm -rf build
 
 jsonschema:

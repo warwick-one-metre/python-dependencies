@@ -12,7 +12,7 @@
 # license that conforms to the Open Source Definition (Version 1.9)
 # published by the Open Source Initiative.
 
-Name:           python34-pyds9
+Name:           python36-pyds9
 Version:        1.8.1
 Release:        3
 License:        GPL2
@@ -20,8 +20,8 @@ Summary:        Python connection to ds9 via XPA
 Url:            https://github.com/ericmandel/pyds9/
 Group:          Development/Languages/Python
 Source:         https://github.com/ericmandel/pyds9/archive/v1.8.1.zip
-BuildRequires:  python34-devel, libXt-devel
-Requires:       python34-six
+BuildRequires:  python36-devel, libXt-devel
+Requires:       python36-six
 BuildArch:      x86_64
 
 %description
@@ -31,13 +31,13 @@ The XPA messaging system provides seamless communication between many kinds of U
 %setup -q -n pyds9-1.8.1
 
 %build
-python3 setup.py build
+%{__python3_other} setup.py build
 
 %install
-python3 setup.py install --prefix=%{_prefix} --root=%{buildroot}
+%{__python3_other} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{python3_sitelib}/*
+%{python3_other_sitelib}/*
 
 %changelog
