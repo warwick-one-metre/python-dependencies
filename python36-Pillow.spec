@@ -1,33 +1,14 @@
-#
-# spec file for package python-Pillow
-#
-# Copyright (c) 2017 SUSE LINUX GmbH, Nuernberg, Germany.
-#
-# All modifications and additions to the file contributed by third parties
-# remain the property of their copyright owners, unless otherwise agreed
-# upon. The license for this file, and modifications and additions to the
-# file, is the same license as for the pristine package itself (unless the
-# license for the pristine package is not an Open Source License, in which
-# case the license is the MIT License). An "Open Source License" is a
-# license that conforms to the Open Source Definition (Version 1.9)
-# published by the Open Source Initiative.
-
-# Please submit bugfixes or comments via http://bugs.opensuse.org/
-
 %define debug_package %{nil}
 
-Name:           python34-Pillow
-Version:        4.3.0
+Name:           python36-Pillow
+Version:        5.4.1
 Release:        0
-License:        Standard PIL License (FIXME:No SPDX)
+Url:            http://python-pillow.org
 Summary:        Python Imaging Library (Fork)
-Url:            https://python-pillow.org
+License:        Standard PIL License (FIXME:No SPDX)
 Group:          Development/Languages/Python
 Source:         https://files.pythonhosted.org/packages/source/P/Pillow/Pillow-%{version}.tar.gz
-BuildRequires:  python34-devel
-BuildRequires:  python34-setuptools
-BuildRequires:  libjpeg-devel, zlib-devel, freetype-devel
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+BuildRequires:  python36-devel
 BuildArch:      x86_64
 
 %description
@@ -47,9 +28,11 @@ Pillow is the friendly PIL fork by `Alex Clark and Contributors <https://github.
     * - docs
       - |docs|
     * - tests
-      - | |linux| |macos| |windows| |coverage|
+      - |linux| |macos| |windows| |coverage|
     * - package
-      - |zenodo| |version|
+      - |zenodo| |tidelift| |version| |downloads|
+    * - social
+      - |gitter| |twitter|
 
 .. |docs| image:: https://readthedocs.org/projects/pillow/badge/?version=latest
    :target: https://pillow.readthedocs.io/?badge=latest
@@ -59,7 +42,7 @@ Pillow is the friendly PIL fork by `Alex Clark and Contributors <https://github.
    :target: https://travis-ci.org/python-pillow/Pillow
    :alt: Travis CI build status (Linux)
 
-.. |macos| image:: https://img.shields.io/travis/python-pillow/pillow-wheels/latest.svg?label=macOS%20build
+.. |macos| image:: https://img.shields.io/travis/python-pillow/pillow-wheels/master.svg?label=macOS%20build
    :target: https://travis-ci.org/python-pillow/pillow-wheels
    :alt: Travis CI build status (macOS)
 
@@ -74,9 +57,24 @@ Pillow is the friendly PIL fork by `Alex Clark and Contributors <https://github.
 .. |zenodo| image:: https://zenodo.org/badge/17549/python-pillow/Pillow.svg
    :target: https://zenodo.org/badge/latestdoi/17549/python-pillow/Pillow
 
+.. |tidelift| image:: https://tidelift.com/badges/github/python-pillow/Pillow?style=flat
+   :target: https://tidelift.com/subscription/pkg/pypi-pillow?utm_source=pypi-pillow&utm_medium=referral&utm_campaign=readme
+
 .. |version| image:: https://img.shields.io/pypi/v/pillow.svg
-   :target: https://pypi.python.org/pypi/Pillow/
+   :target: https://pypi.org/project/Pillow/
    :alt: Latest PyPI version
+
+.. |downloads| image:: https://img.shields.io/pypi/dm/pillow.svg
+   :target: https://pypi.org/project/Pillow/
+   :alt: Number of PyPI downloads
+
+.. |gitter| image:: https://badges.gitter.im/python-pillow/Pillow.svg
+   :target: https://gitter.im/python-pillow/Pillow?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+   :alt: Join the chat at https://gitter.im/python-pillow/Pillow
+
+.. |twitter| image:: https://img.shields.io/badge/tweet-on%20Twitter-00aced.svg
+   :target: https://twitter.com/PythonPillow
+   :alt: Follow on https://twitter.com/PythonPillow
 
 .. end-badges
 
@@ -99,21 +97,17 @@ More Information
 
   - `Pre-fork <https://github.com/python-pillow/Pillow/blob/master/CHANGES.rst#pre-fork>`_
 
-
-
-
 %prep
 %setup -q -n Pillow-%{version}
 
 %build
-python3 setup.py build
+%{__python3_other} setup.py build
 
 %install
-python3 setup.py install --prefix=%{_prefix} --root=%{buildroot}
+%{__python3_other} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{python3_sitearch}/*
-/usr/bin/*
+%{python3_other_sitearch}/*
 
 %changelog
