@@ -10,7 +10,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # py2pack generate -t fedora.spec <package name> <package version>
 # then rename and modify spec file to use match the others in the repository
 prereq: numpy serpent
-py36: astropy six pyds9 pyro4 sep demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema
+py36: astropy scipy six pyds9 pyro4 sep demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema
 py34: Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe
 
 numpy:
@@ -22,6 +22,12 @@ numpy:
 astropy:
 	mkdir -p build
 	${RPMBUILD} -ba python36-astropy.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+
+scipy:
+	mkdir -p build
+	${RPMBUILD} -ba python36-scipy.spec
 	mv build/x86_64/*.rpm .
 	rm -rf build
 

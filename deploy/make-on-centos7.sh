@@ -6,19 +6,31 @@
 # Add a default user to squash unknown user errors during rpmbuild
 adduser --uid "${USERID}" hostuser
 
+# scipy package build fails when run from the host directory
+# so copy and run from inside the container
+cp -r . /python-dependencies
+pushd /python-dependencies > /dev/null
+
 # Install dependencies
 yum -y clean all
 yum -y clean expire-cache
-yum -y install rpm-build gcc make git wget unzip atlas-devel lapack-devel gcc-gfortran libquadmath libXt-devel libjpeg-devel zlib-devel freetype-devel epel-release
+yum -y install rpm-build gcc gcc-c++ make git wget unzip atlas-devel lapack-devel gcc-gfortran libquadmath libXt-devel libjpeg-devel zlib-devel freetype-devel epel-release
 yum -y install python3-rpm-macros python36 python36-devel python36-setuptools
 
 # Run make command as the default user so that generated files aren't owned by root
 # Other packages depend on numpy, so make it manually first
-su hostuser -c "make prereq"
+make prereq
 rpm -i python36-numpy-*.rpm
 rpm -i python36-serpent-*.rpm
 
-su hostuser -c "make py36"
+make py36
+
+# Copy packages back to the host directory
+
+cp *.rpm /src/
+chown hostuser:hostuser /src/*.rpm
+
+popd > /dev/null
 
 # Legacy packages
 #yum -y install python34-pip python34-devel python34-numpy
