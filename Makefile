@@ -10,8 +10,8 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # py2pack generate -t fedora.spec <package name> <package version>
 # then rename and modify spec file to use match the others in the repository
 prereq: numpy serpent
-py36: astropy scipy six pyds9 pyro4 sep demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema
-py34: Flask Flask-OAuthlib click itsdangerous Werkzeug oauthlib Jinja2 MarkupSafe
+general: astropy scipy six pyds9 pyro4 sep demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema
+web: Flask click itsdangerous Werkzeug Jinja2 MarkupSafe chardet idna urllib3 certifi requests GitHub-Flask
 
 numpy:
 	mkdir -p build
@@ -119,57 +119,73 @@ jsonschema:
 
 Werkzeug:
 	mkdir -p build
-	py2pack fetch Werkzeug 0.12.2
-	${RPMBUILD} -ba python34-Werkzeug.spec
+	${RPMBUILD} -ba python36-Werkzeug.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 itsdangerous:
 	mkdir -p build
-	py2pack fetch itsdangerous 0.24
-	${RPMBUILD} -ba python34-itsdangerous.spec
+	${RPMBUILD} -ba python36-itsdangerous.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 click:
 	mkdir -p build
-	py2pack fetch click 6.7
-	${RPMBUILD} -ba python34-click.spec
+	${RPMBUILD} -ba python36-click.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 Flask:
 	mkdir -p build
-	py2pack fetch Flask 0.12.2
-	${RPMBUILD} -ba python34-Flask.spec
-	mv build/noarch/*.rpm .
-	rm -rf build
-
-Flask-OAuthlib:
-	mkdir -p build
-	py2pack fetch Flask-OAuthlib 0.9.4
-	${RPMBUILD} -ba python34-Flask-OAuthlib.spec
+	${RPMBUILD} -ba python36-Flask.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 Jinja2:
 	mkdir -p build
-	py2pack fetch Jinja2 2.9.6
-	${RPMBUILD} -ba python34-Jinja2.spec
+	${RPMBUILD} -ba python36-Jinja2.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
 MarkupSafe:
 	mkdir -p build
-	py2pack fetch MarkupSafe 1.0
-	${RPMBUILD} -ba python34-MarkupSafe.spec
+	${RPMBUILD} -ba python36-MarkupSafe.spec
 	mv build/x86_64/*.rpm .
 	rm -rf build
 
-oauthlib:
+chardet:
 	mkdir -p build
-	py2pack fetch oauthlib 2.0.4
-	${RPMBUILD} -ba python34-oauthlib.spec
+	${RPMBUILD} -ba python36-chardet.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+requests:
+	mkdir -p build
+	${RPMBUILD} -ba python36-requests.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+idna:
+	mkdir -p build
+	${RPMBUILD} -ba python36-idna.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+urllib3:
+	mkdir -p build
+	${RPMBUILD} -ba python36-urllib3.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+certifi:
+	mkdir -p build
+	${RPMBUILD} -ba python36-certifi.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+GitHub-Flask:
+	mkdir -p build
+	${RPMBUILD} -ba python36-GitHub-Flask.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 

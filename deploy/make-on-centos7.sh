@@ -23,7 +23,8 @@ make prereq
 rpm -i python36-numpy-*.rpm
 rpm -i python36-serpent-*.rpm
 
-make py36
+make general
+make web
 
 # Copy packages back to the host directory
 
@@ -31,8 +32,3 @@ cp *.rpm /src/
 chown hostuser:hostuser /src/*.rpm
 
 popd > /dev/null
-
-# Legacy packages
-#yum -y install python34-pip python34-devel python34-numpy
-#pip3 install py2pack
-#su hostuser -c "make py34"
