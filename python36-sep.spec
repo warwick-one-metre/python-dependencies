@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 Name:           python36-sep
 Version:        1.0.3
 Release:        0

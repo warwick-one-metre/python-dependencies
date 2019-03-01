@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 Name:           python36-numpy
 Version:        1.16.1
 Release:        0

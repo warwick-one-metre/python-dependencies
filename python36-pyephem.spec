@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 Name:           python36-pyephem
 Version:        3.7.6.0
 Release:        0

@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 Name:           python36-astropy
 Version:        3.1.1
 Release:        0

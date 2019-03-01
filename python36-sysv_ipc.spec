@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 Name:           python36-sysv_ipc
 Version:        1.0.0
 Release:        0

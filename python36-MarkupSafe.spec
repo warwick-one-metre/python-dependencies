@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 Name:           python36-MarkupSafe
 Version:        1.1.1
 Release:        0

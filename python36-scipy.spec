@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 Name:           python36-scipy
 Version:        1.2.1
 Release:        0
