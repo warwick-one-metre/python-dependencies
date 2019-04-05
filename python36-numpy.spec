@@ -24,14 +24,14 @@ BuildRequires:  libquadmath
 
 %build
 
-%{__python3_other} setup.py build
+%{__python3} setup.py build
 
 %install
-%{__python3_other} setup.py install --prefix=%{_prefix} --root=%{buildroot}
+%{__python3} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{python3_other_sitearch}/*
+%{python3_sitearch}/*
 %{_bindir}/f2py
 %{_bindir}/f2py3
 %{_bindir}/f2py3.6

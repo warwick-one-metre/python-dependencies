@@ -182,14 +182,14 @@ CONTRIBUTORS
 %setup -q -n pytesseract-%{version}
 
 %build
-%{__python3_other} setup.py build
+%{__python3} setup.py build
 
 %install
-%{__python3_other} setup.py install --prefix=%{_prefix} --root=%{buildroot}
+%{__python3} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 %files
 %{_bindir}/*
 %defattr(-,root,root,-)
-%{python3_other_sitelib}/*
+%{python3_sitelib}/*
 
 %changelog

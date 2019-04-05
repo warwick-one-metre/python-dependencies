@@ -31,15 +31,15 @@ The documentation can be found here: http://pyro4.readthedocs.io
 %setup -q -n Pyro4-%{version}
 
 %build
-%{__python3_other} setup.py build
+%{__python3} setup.py build
 
 %install
-%{__python3_other} setup.py install --prefix=%{_prefix} --root=%{buildroot}
+%{__python3} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 %files
 %doc LICENSE
 %defattr(-,root,root,-)
-%{python3_other_sitelib}/*
+%{python3_sitelib}/*
 %{_bindir}/*
 
 %changelog

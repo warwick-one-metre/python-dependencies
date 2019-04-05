@@ -29,16 +29,16 @@ give SciPy a try!
 %setup -q -n scipy-%{version}
 
 %build
-%{__python3_other} setup.py build
+%{__python3} setup.py build
 
 %install
-%{__python3_other} setup.py install --prefix=%{_prefix} --root=%{buildroot}
+%{__python3} setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{python3_other_sitearch}/*
+%{python3_sitearch}/*
 
 %changelog
