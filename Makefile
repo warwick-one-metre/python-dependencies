@@ -11,7 +11,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # then rename and modify spec file to use match the others in the repository
 prereq: numpy serpent
 general: astropy astroplan scipy six pyds9 pyro4 sep demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema
-web: Flask click itsdangerous Werkzeug Jinja2 MarkupSafe chardet idna urllib3 certifi requests GitHub-Flask
+web: Flask click itsdangerous Werkzeug Jinja2 MarkupSafe chardet idna urllib3 certifi requests GitHub-Flask bibtexparser
 
 numpy:
 	mkdir -p build
@@ -195,3 +195,8 @@ GitHub-Flask:
 	mv build/noarch/*.rpm .
 	rm -rf build
 
+bibtexparser:
+	mkdir -p build
+	${RPMBUILD} -ba python36-bibtexparser.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
