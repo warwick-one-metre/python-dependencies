@@ -6,6 +6,9 @@ Summary:        Elegant astronomy for Python
 License:        MIT
 Group:          Development/Languages/Python
 Source:         https://files.pythonhosted.org/packages/source/s/skyfield/skyfield-%{version}.tar.gz
+Requires:       python36-sgp4
+Requires:       python36-jplephem
+Requires:       python36-numpy
 BuildRequires:  python36-devel
 BuildRequires:  python36-setuptools
 BuildArch: noarch
