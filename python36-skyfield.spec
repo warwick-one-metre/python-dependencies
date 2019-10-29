@@ -1,5 +1,5 @@
 Name:           python36-skyfield
-Version:        1.10
+Version:        1.13
 Release:        0
 Url:            http://github.com/brandon-rhodes/python-skyfield/
 Summary:        Elegant astronomy for Python
