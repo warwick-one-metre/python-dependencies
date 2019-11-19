@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:           python36-astropy
-Version:        3.1.1
+Version:        3.2.3
 Release:        0
 Url:            http://astropy.org
 Summary:        Community-developed python astronomy tools
@@ -26,7 +26,7 @@ managing them.
 %{__python3} setup.py build
 
 %install
-%{__python3} setup.py install --prefix=%{_prefix} --root=%{buildroot}
+%{__python3} setup.py --offline install --prefix=%{_prefix} --root=%{buildroot}
 
 %files
 %defattr(-,root,root,-)
