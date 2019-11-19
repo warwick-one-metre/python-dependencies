@@ -1,5 +1,5 @@
 Name:           python36-certifi
-Version:        2018.11.29
+Version:        2019.9.11
 Release:        0
 Url:            https://certifi.io/
 Summary:        Python package for providing Mozilla's CA Bundle.

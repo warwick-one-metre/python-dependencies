@@ -7,8 +7,8 @@ License:        BSD (FIXME:No SPDX)
 Group:          Development/Languages/Python
 Source:         https://files.pythonhosted.org/packages/source/F/Flask/Flask-%{version}.tar.gz
 BuildRequires:  python36-devel
-Requires:       python36-Werkzeug >= 0.14
-Requires:       python36-Jinja2 >= 2.10
+Requires:       python36-Werkzeug >= 0.15
+Requires:       python36-Jinja2 >= 2.10.1
 Requires:       python36-itsdangerous >= 0.24
 Requires:       python36-click >= 5.1
 BuildArch:      noarch

@@ -1,5 +1,5 @@
 Name:           python36-requests
-Version:        2.21.0
+Version:        2.22.0
 Release:        1
 Url:            http://python-requests.org
 Summary:        Python HTTP for Humans.

@@ -1,5 +1,5 @@
 Name:           python36-Werkzeug
-Version:        0.14.1
+Version:        0.16
 Release:        0
 Url:            https://www.palletsprojects.org/p/werkzeug/
 Summary:        The comprehensive WSGI web application library.

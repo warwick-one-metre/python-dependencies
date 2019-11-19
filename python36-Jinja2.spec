@@ -1,7 +1,7 @@
 %global _python_bytecompile_errors_terminate_build 0
 
 Name:           python36-Jinja2
-Version:        2.10
+Version:        2.10.3
 Release:        0
 Url:            http://jinja.pocoo.org/
 Summary:        A small but fast and easy to use stand-alone template engine written in pure python.
