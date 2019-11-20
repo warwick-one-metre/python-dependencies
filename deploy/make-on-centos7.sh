@@ -25,6 +25,7 @@ rpm -i python36-serpent-*.rpm
 
 make general
 make web
+make web2
 
 # Copy packages back to the host directory
 

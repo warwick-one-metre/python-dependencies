@@ -12,6 +12,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 prereq: numpy serpent
 general: astropy astroplan scipy six pyds9 pyro4 sep demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema astroquery html5lib beautifulsoup4 spalipy skyfield sgp4 jplephem
 web: Flask click itsdangerous Werkzeug Jinja2 MarkupSafe chardet idna urllib3 certifi requests GitHub-Flask bibtexparser biplist
+web-new: flask werkzeug
 
 numpy:
 	mkdir -p build
@@ -233,7 +234,7 @@ GitHub-Flask:
 
 bibtexparser:
 	mkdir -p build
-	${RPMBUILD} -ba python36-bibtexparser.spec
+	${RPMBUILD}python3-flask-1.0.2-0.noarch.rpm -ba python36-bibtexparser.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
@@ -246,6 +247,25 @@ biplist:
 spalipy:
 	mkdir -p build
 	${RPMBUILD} -ba python36-spalipy.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+# Web packages for CentOS 8
+flask:
+	mkdir -p build
+	${RPMBUILD} -ba python3-flask.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+werkzeug:
+	mkdir -p build
+	${RPMBUILD} -ba python3-werkzeug.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+github-flask:
+	mkdir -p build
+	${RPMBUILD} -ba python3-github-flask.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 

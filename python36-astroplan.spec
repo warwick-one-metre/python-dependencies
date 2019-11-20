@@ -1,5 +1,5 @@
 Name:           python36-astroplan
-Version:        0.4
+Version:        0.5
 Release:        0
 Url:            https://github.com/astropy/astroplan
 Summary:        Observation planning package for astronomers
