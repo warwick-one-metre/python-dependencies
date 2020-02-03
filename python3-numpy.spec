@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:           python3-numpy
-Version:        1.17.4
+Version:        1.16.1
 Release:        0
 License:        BSD (FIXME:No SPDX)
 Summary:        NumPy is the fundamental package for array computing with Python
