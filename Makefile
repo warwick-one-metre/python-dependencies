@@ -9,20 +9,33 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # Generate spec files for new packages using:
 # py2pack generate -t fedora.spec <package name> <package version>
 # then rename and modify spec file to use match the others in the repository
-prereq: numpy serpent
-general: astropy astroplan scipy six pyds9 pyro4 sep demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema astroquery html5lib beautifulsoup4 spalipy skyfield sgp4 jplephem
+prereq: numpy36 serpent numpy
+general: astropy36 astroplan scipy six pyds936 pyro4 sep36 demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema astroquery36 html5lib beautifulsoup4 spalipy skyfield36 sgp436 jplephem36
 web: Flask click itsdangerous Werkzeug Jinja2 MarkupSafe chardet idna urllib3 certifi requests GitHub-Flask bibtexparser biplist
 web-new: flask werkzeug
+general-new: astropy astroquery keyring skyfield sgp4 jplephem sep pyds9
 
-numpy:
+numpy36:
 	mkdir -p build
 	${RPMBUILD} -ba python36-numpy.spec
 	mv build/x86_64/*.rpm .
 	rm -rf build
 
-astropy:
+numpy:
+	mkdir -p build
+	${RPMBUILD} -ba python3-numpy.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+
+astropy36:
 	mkdir -p build
 	${RPMBUILD} -ba python36-astropy.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+
+astropy:
+	mkdir -p build
+	${RPMBUILD} -ba python3-astropy.spec
 	mv build/x86_64/*.rpm .
 	rm -rf build
 
@@ -44,9 +57,15 @@ six:
 	mv build/noarch/*.rpm .
 	rm -rf build
 
-pyds9:
+pyds936:
 	mkdir -p build
 	${RPMBUILD} -ba python36-pyds9.spec
+	mv build/x86_64/*.rpm .
+	rm -rf x86_64
+
+pyds9:
+	mkdir -p build
+	${RPMBUILD} -ba python3-pyds9.spec
 	mv build/x86_64/*.rpm .
 	rm -rf x86_64
 
@@ -62,9 +81,15 @@ pyro4:
 	mv build/noarch/*.rpm .
 	rm -rf build
 
-sep:
+sep36:
 	mkdir -p build
 	${RPMBUILD} -ba python36-sep.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+
+sep:
+	mkdir -p build
+	${RPMBUILD} -ba python3-sep.spec
 	mv build/x86_64/*.rpm .
 	rm -rf build
 
@@ -122,7 +147,7 @@ jsonschema:
 	mv build/noarch/*.rpm .
 	rm -rf build
 
-astroquery:
+astroquery36:
 	mkdir -p build
 	${RPMBUILD} -ba python36-astroquery.spec
 	mv build/noarch/*.rpm .
@@ -140,21 +165,51 @@ beautifulsoup4:
 	mv build/noarch/*.rpm .
 	rm -rf build
 
-skyfield:
+skyfield36:
 	mkdir -p build
 	${RPMBUILD} -ba python36-skyfield.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
-sgp4:
+skyfield:
+	mkdir -p build
+	${RPMBUILD} -ba python3-skyfield.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+sgp436:
 	mkdir -p build
 	${RPMBUILD} -ba python36-sgp4.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
-jplephem:
+sgp4:
+	mkdir -p build
+	${RPMBUILD} -ba python3-sgp4.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+jplephem36:
 	mkdir -p build
 	${RPMBUILD} -ba python36-jplephem.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+jplephem:
+	mkdir -p build
+	${RPMBUILD} -ba python3-jplephem.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+astroquery:
+	mkdir -p build
+	${RPMBUILD} -ba python3-astroquery.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+keyring:
+	mkdir -p build
+	${RPMBUILD} -ba python3-keyring.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
 
