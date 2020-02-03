@@ -12,7 +12,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 prereq: numpy36 serpent numpy
 general: astropy36 astroplan scipy six pyds936 pyro4 sep36 demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema astroquery36 html5lib beautifulsoup4 spalipy skyfield36 sgp436 jplephem36
 web: Flask click itsdangerous Werkzeug Jinja2 MarkupSafe chardet idna urllib3 certifi requests GitHub-Flask bibtexparser biplist
-web-new: flask werkzeug
+web-new: flask werkzeug github-flask
 general-new: astropy astroquery keyring skyfield sgp4 jplephem sep pyds9
 
 numpy36:
