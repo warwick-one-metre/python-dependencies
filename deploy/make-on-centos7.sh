@@ -25,13 +25,13 @@ rpm -i python3-numpy-*.rpm
 make general-new
 make web-new
 
-yum -y remove python3-numpy
+#yum -y remove python3-numpy
 
-rpm -i python36-numpy-*.rpm
-rpm -i python36-serpent-*.rpm
+#rpm -i python36-numpy-*.rpm
+#rpm -i python36-serpent-*.rpm
 
-make general
-make web
+#make general
+#make web
 
 # Copy packages back to the host directory
 
