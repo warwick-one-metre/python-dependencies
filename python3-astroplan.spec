@@ -1,4 +1,4 @@
-Name:           python36-astroplan
+Name:           python3-astroplan
 Version:        0.5
 Release:        0
 Url:            https://github.com/astropy/astroplan
@@ -6,8 +6,8 @@ Summary:        Observation planning package for astronomers
 License:        BSD (FIXME:No SPDX)
 Group:          Development/Languages/Python
 Source:         https://files.pythonhosted.org/packages/source/a/astroplan/astroplan-%{version}.tar.gz
-BuildRequires:  python36-devel
-Requires:       python36-pytz
+BuildRequires:  python3-devel
+Requires:       python3-pytz
 BuildArch:      noarch
 
 %description

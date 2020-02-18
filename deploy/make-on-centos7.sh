@@ -14,24 +14,18 @@ pushd /python-dependencies > /dev/null
 # Install dependencies
 yum -y clean all
 yum -y clean expire-cache
-yum -y install rpm-build gcc gcc-c++ make git wget unzip atlas-devel lapack-devel gcc-gfortran libquadmath libXt-devel libjpeg-devel zlib-devel freetype-devel epel-release
-yum -y install python3-rpm-macros python36 python36-devel python36-setuptools
+yum -y install rpm-build gcc gcc-c++ make git wget unzip gcc-gfortran libquadmath libXt-devel libjpeg-devel zlib-devel freetype-devel epel-release
+yum -y install python3-rpm-macros python3 python3-devel python3-setuptools atlas-devel lapack-devel openblas-devel openblas lapack
 
 # Run make command as the default user so that generated files aren't owned by root
 # Other packages depend on numpy, so make it manually first
 make prereq
 rpm -i python3-numpy-*.rpm
+rpm -i python3-pybind11-*.rpm
+rpm -i python3-serpent-*.rpm
 
-make general-new
-make web-new
-
-#yum -y remove python3-numpy
-
-#rpm -i python36-numpy-*.rpm
-#rpm -i python36-serpent-*.rpm
-
-#make general
-#make web
+make general
+make web
 
 # Copy packages back to the host directory
 

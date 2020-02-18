@@ -1,4 +1,4 @@
-Name:           python36-strict-rfc3339
+Name:           python3-strict-rfc3339
 Version:        0.7
 Release:        0
 License:        GNU General Public License Version 3 (FIXME:No SPDX)
@@ -6,8 +6,8 @@ Summary:        Strict, simple, lightweight RFC3339 functions
 Url:            http://www.danielrichman.co.uk/libraries/strict-rfc3339.html
 Group:          Development/Languages/Python
 Source:         https://files.pythonhosted.org/packages/source/s/strict-rfc3339/strict-rfc3339-%{version}.tar.gz
-BuildRequires:  python36-devel
-BuildRequires:  python36-setuptools
+BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
 BuildArch:      noarch
 
 %description
