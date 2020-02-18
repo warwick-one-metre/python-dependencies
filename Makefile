@@ -9,11 +9,11 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # Generate spec files for new packages using:
 # py2pack generate -t fedora.spec <package name> <package version>
 # then rename and modify spec file to use match the others in the repository
-prereq: numpy36 serpent36 serpent numpy 
-general: astropy36 astroplan scipy six pyds936 pyro436 sep36 demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema astroquery36 html5lib beautifulsoup4 spalipy skyfield36 sgp436 jplephem36
+prereq: numpy36 serpent36 serpent numpy pybind11
+general: astropy36 astroplan scipy36 six pyds936 pyro436 sep36 demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema astroquery36 html5lib beautifulsoup4 spalipy skyfield36 sgp436 jplephem36
 web: Flask click itsdangerous Werkzeug Jinja2 MarkupSafe chardet idna urllib3 certifi requests GitHub-Flask bibtexparser36 biplist36
 web-new: flask werkzeug github-flask pyparsing bibtexparser biplist
-general-new: astropy astroquery keyring skyfield sgp4 jplephem sep pyds9 pyro
+general-new: astropy astroquery scipy keyring skyfield sgp4 jplephem sep pyds9 pyro
 
 numpy36:
 	mkdir -p build
@@ -45,9 +45,21 @@ astroplan:
 	mv build/noarch/*.rpm .
 	rm -rf build
 
-scipy:
+scipy36:
 	mkdir -p build
 	${RPMBUILD} -ba python36-scipy.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+
+pybind11:
+	mkdir -p build
+	${RPMBUILD} -ba python3-pybind11.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+
+scipy:
+	mkdir -p build
+	${RPMBUILD} -ba python3-scipy.spec
 	mv build/x86_64/*.rpm .
 	rm -rf build
 
