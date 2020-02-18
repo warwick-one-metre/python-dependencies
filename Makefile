@@ -13,7 +13,7 @@ prereq: numpy36 serpent36 serpent numpy pybind11
 general: astropy36 astroplan scipy36 six pyds936 pyro436 sep36 demjson pyserial pyephem sysv_ipc Pillow pytesseract pymysql strict-rfc3339 jsonschema astroquery36 html5lib beautifulsoup4 spalipy skyfield36 sgp436 jplephem36
 web: Flask click itsdangerous Werkzeug Jinja2 MarkupSafe chardet idna urllib3 certifi requests GitHub-Flask bibtexparser36 biplist36
 web-new: flask werkzeug github-flask pyparsing bibtexparser biplist
-general-new: astropy astroquery scipy keyring skyfield sgp4 jplephem sep pyds9 pyro
+general-new: astropy astroquery scipy keyring skyfield sgp4 jplephem sep pyds9 pyro photutils
 
 numpy36:
 	mkdir -p build
@@ -345,6 +345,12 @@ spalipy:
 	mkdir -p build
 	${RPMBUILD} -ba python36-spalipy.spec
 	mv build/noarch/*.rpm .
+	rm -rf build
+
+photutils:
+	mkdir -p build
+	${RPMBUILD} -ba python3-photutils.spec
+	mv build/x86_64/*.rpm .
 	rm -rf build
 
 # Web packages for CentOS 8
