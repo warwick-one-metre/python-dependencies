@@ -11,7 +11,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # then rename and modify spec file to use match the others in the repository
 prereq: serpent numpy pybind11
 web: flask werkzeug github-flask pyparsing bibtexparser biplist
-general: astropy astroquery astroplan scipy keyring skyfield sgp4 jplephem sep pyds9 pyro4 photutils strict-rfc3339 demjson
+general: astropy astroquery astroplan scipy keyring skyfield sgp4 jplephem sep pyds9 pyro4 photutils strict-rfc3339 demjson mpmath sympy sip_tpv
 
 numpy:
 	echo 'Packaging numpy' && echo -en "travis_fold:start:numpy"
@@ -204,4 +204,28 @@ github-flask:
 	mv build/noarch/*.rpm .
 	rm -rf build
 	echo -en "\ntravis_fold:end:github-flask\r"
+
+mpmath:
+	echo 'Packaging mpmath' && echo -en "travis_fold:start:mpmath"
+	mkdir -p build
+	${RPMBUILD} -ba python3-mpmath.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+	echo -en "\ntravis_fold:end:mpmath\r"
+
+sympy:
+	echo 'Packaging sympy' && echo -en "travis_fold:start:sympy"
+	mkdir -p build
+	${RPMBUILD} -ba python3-sympy.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+	echo -en "\ntravis_fold:end:sympy\r"
+
+sip_tpv:
+	echo 'Packaging sip_tpv' && echo -en "travis_fold:start:sip_tpv"
+	mkdir -p build
+	${RPMBUILD} -ba python3-sip_tpv.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+	echo -en "\ntravis_fold:end:sip_tpv\r"
 
