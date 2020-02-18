@@ -11,18 +11,22 @@ adduser --uid "${USERID}" hostuser
 cp -r . /python-dependencies
 pushd /python-dependencies > /dev/null
 
-# Install dependencies
+echo 'Installing Dependencies' && echo -en "travis_fold:start:centos-deps.1"
 yum -y clean all
 yum -y clean expire-cache
 yum -y install rpm-build gcc gcc-c++ make git wget unzip gcc-gfortran libquadmath libXt-devel libjpeg-devel zlib-devel freetype-devel epel-release
 yum -y install python3-rpm-macros python3 python3-devel python3-setuptools atlas-devel lapack-devel openblas-devel openblas lapack
+echo -en "\ntravis_fold:end:centos-deps.1\r"
 
 # Run make command as the default user so that generated files aren't owned by root
 # Other packages depend on numpy, so make it manually first
 make prereq
+
+echo 'Installing Dependencies' && echo -en "travis_fold:start:centos-deps.2"
 rpm -i python3-numpy-*.rpm
 rpm -i python3-pybind11-*.rpm
 rpm -i python3-serpent-*.rpm
+echo -en "\ntravis_fold:end:centos-deps.2\r"
 
 make general
 make web
