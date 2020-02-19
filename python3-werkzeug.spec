@@ -1,5 +1,5 @@
 Name:           python3-werkzeug
-Version:        0.16.0
+Version:        1.0.0
 Release:        0
 Url:            https://www.palletsprojects.org/p/werkzeug/
 Summary:        The comprehensive WSGI web application library.

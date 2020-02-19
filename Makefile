@@ -113,7 +113,7 @@ sgp4:
 	echo 'Packaging sgp4' && echo -en "travis_fold:start:sgp4"
 	mkdir -p build
 	${RPMBUILD} -ba python3-sgp4.spec
-	mv build/noarch/*.rpm .
+	mv build/x86_64/*.rpm .
 	rm -rf build
 	echo -en "\ntravis_fold:end:sgp4\r"
 

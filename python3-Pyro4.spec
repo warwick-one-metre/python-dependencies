@@ -1,5 +1,5 @@
 Name:           python3-Pyro4
-Version:        4.75
+Version:        4.79
 Release:        0
 Url:            http://pyro4.readthedocs.io
 Summary:        distributed object middleware for Python (RPC)

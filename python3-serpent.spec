@@ -1,5 +1,5 @@
 Name:           python3-serpent
-Version:        1.27
+Version:        1.30.2
 Release:        0
 Summary:        Serialization based on ast.literal_eval
 License:        MIT

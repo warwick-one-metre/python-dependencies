@@ -1,5 +1,5 @@
 Name:           python3-flask
-Version:        1.0.2
+Version:        1.1.1
 Release:        0
 Url:            https://www.palletsprojects.com/p/flask/
 Summary:        A simple framework for building complex web applications.

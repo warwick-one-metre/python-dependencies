@@ -1,5 +1,7 @@
+%define debug_package %{nil}
+
 Name:           python3-sgp4
-Version:        1.4
+Version:        2.3
 Release:        0
 Url:            https://github.com/brandon-rhodes/python-sgp4
 Summary:        Track earth satellite TLE orbits using up-to-date 2010 version of SGP4
@@ -8,7 +10,7 @@ Group:          Development/Languages/Python
 Source:         https://files.pythonhosted.org/packages/source/s/sgp4/sgp4-%{version}.tar.gz
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
-BuildArch: noarch
+BuildArch:      x86_64
 
 %description
 This Python package computes the position and velocity of an
@@ -124,6 +126,6 @@ Changelog
 
 %files
 %defattr(-,root,root,-)
-%{python3_sitelib}/*
+%{python3_sitearch}/*
 
 %changelog
