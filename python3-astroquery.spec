@@ -7,7 +7,7 @@ License:        BSD (FIXME:No SPDX)
 Group:          Development/Languages/Python
 Source:         https://files.pythonhosted.org/packages/source/a/astroquery/astroquery-%{version}.tar.gz
 BuildRequires:  python3-devel
-Requires:       python3-astropy, python3-requests, python3-keyring, python3--beautifulsoup4, python3-html5lib, python3-six
+Requires:       python3-astropy, python3-requests, python3-keyring, python3-beautifulsoup4, python3-html5lib, python3-six
 BuildArch:      noarch
 
 %description
