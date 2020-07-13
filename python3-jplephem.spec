@@ -1,5 +1,5 @@
 Name:           python3-jplephem
-Version:        2.12
+Version:        2.14
 Release:        0
 Url:            https://github.com/brandon-rhodes/python-jplephem
 Summary:        Use a JPL ephemeris to predict planet positions.

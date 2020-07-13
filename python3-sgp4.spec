@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:           python3-sgp4
-Version:        2.3
+Version:        2.12
 Release:        0
 Url:            https://github.com/brandon-rhodes/python-sgp4
 Summary:        Track earth satellite TLE orbits using up-to-date 2010 version of SGP4

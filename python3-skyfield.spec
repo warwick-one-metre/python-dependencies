@@ -1,13 +1,14 @@
 Name:           python3-skyfield
-Version:        1.17
+Version:        1.23
 Release:        0
 Url:            http://github.com/brandon-rhodes/python-skyfield/
 Summary:        Elegant astronomy for Python
 License:        MIT
 Group:          Development/Languages/Python
 Source:         https://files.pythonhosted.org/packages/source/s/skyfield/skyfield-%{version}.tar.gz
+Requires:       python3-certifi >= 2017.4.17
 Requires:       python3-sgp4 >= 2.2
-Requires:       python3-jplephem >= 2.11
+Requires:       python3-jplephem >= 2.13
 Requires:       python3-numpy
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
