@@ -10,8 +10,8 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # py2pack generate -t fedora.spec <package name> <package version>
 # then rename and modify spec file to use match the others in the repository
 prereq: serpent numpy pybind11
-web: flask werkzeug github-flask pyparsing bibtexparser biplist
-general: astropy astroquery astroplan scipy keyring skyfield sgp4 jplephem sep pyds9 pyro4 photutils strict-rfc3339 demjson mpmath sympy sip_tpv
+web: flask werkzeug click jinja2 markupsafe requests idna certifi github-flask pyparsing bibtexparser biplist pymysql chardet urllib3 itsdangerous
+general: astropy astroquery astroplan scipy jsonschema keyring skyfield sgp4 jplephem sep pyds9 pyro4 photutils pillow pyephem pyserial six strict-rfc3339 sysv_ipc demjson mpmath sympy sip_tpv pytesseract
 
 numpy:
 	echo 'Packaging numpy' && echo -en "travis_fold:start:numpy"
@@ -141,6 +141,14 @@ keyring:
 	rm -rf build
 	echo -en "\ntravis_fold:end:keyring\r"
 
+jsonschema:
+	echo 'Packaging jsonschema' && echo -en "travis_fold:start:jsonschema"
+	mkdir -p build
+	${RPMBUILD} -ba python3-jsonschema.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+	echo -en "\ntravis_fold:end:jsonschema\r"
+
 click:
 	echo 'Packaging click' && echo -en "travis_fold:start:click"
 	mkdir -p build
@@ -181,6 +189,38 @@ photutils:
 	rm -rf build
 	echo -en "\ntravis_fold:end:photutils\r"
 
+pyserial:
+	echo 'Packaging pyserial' && echo -en "travis_fold:start:pyserial"
+	mkdir -p build
+	${RPMBUILD} -ba python3-pyserial.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+	echo -en "\ntravis_fold:end:pyserial\r"
+
+pyephem:
+	echo 'Packaging pyephem' && echo -en "travis_fold:start:pyephem"
+	mkdir -p build
+	${RPMBUILD} -ba python3-pyephem.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+	echo -en "\ntravis_fold:end:pyephem\r"
+
+six:
+	echo 'Packaging six' && echo -en "travis_fold:start:six"
+	mkdir -p build
+	${RPMBUILD} -ba python3-six.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+	echo -en "\ntravis_fold:end:six\r"
+
+sysv_ipc:
+	echo 'Packaging sysv_ipc' && echo -en "travis_fold:start:sysv_ipc"
+	mkdir -p build
+	${RPMBUILD} -ba python3-sysv_ipc.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+	echo -en "\ntravis_fold:end:sysv_ipc\r"
+
 flask:
 	echo 'Packaging flask' && echo -en "travis_fold:start:flask"
 	mkdir -p build
@@ -188,6 +228,36 @@ flask:
 	mv build/noarch/*.rpm .
 	rm -rf build
 	echo -en "\ntravis_fold:end:flask\r"
+
+jinja2:
+	mkdir -p build
+	${RPMBUILD} -ba python3-jinja2.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+markupsafe:
+	mkdir -p build
+	${RPMBUILD} -ba python3-markupsafe.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+
+requests:
+	mkdir -p build
+	${RPMBUILD} -ba python3-requests.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+idna:
+	mkdir -p build
+	${RPMBUILD} -ba python3-idna.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+certifi:
+	mkdir -p build
+	${RPMBUILD} -ba python3-certifi.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
 
 werkzeug:
 	echo 'Packaging werkzeug' && echo -en "travis_fold:start:werkzeug"
@@ -229,3 +299,39 @@ sip_tpv:
 	rm -rf build
 	echo -en "\ntravis_fold:end:sip_tpv\r"
 
+
+pytesseract:
+	mkdir -p build
+	${RPMBUILD} -ba python3-pytesseract.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+pymysql:
+	mkdir -p build
+	${RPMBUILD} -ba python3-pymysql.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+pillow:
+	mkdir -p build
+	${RPMBUILD} -ba python3-pillow.spec
+	mv build/x86_64/*.rpm .
+	rm -rf build
+
+chardet:
+	mkdir -p build
+	${RPMBUILD} -ba python3-chardet.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+itsdangerous:
+	mkdir -p build
+	${RPMBUILD} -ba python3-itsdangerous.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+
+urllib3:
+	mkdir -p build
+	${RPMBUILD} -ba python3-urllib3.spec
+	mv build/noarch/*.rpm .
+	rm -rf build

@@ -10,6 +10,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-serpent
 Requires:       python3-serpent
 BuildArch:      noarch
+Provides:       python36-Pyro4 = 4.79
 
 %description
 Pyro means PYthon Remote Objects.
