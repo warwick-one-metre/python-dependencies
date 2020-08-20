@@ -11,7 +11,7 @@ RPMBUILD = rpmbuild --define "_topdir %(pwd)/build/../build/../build/../build/" 
 # then rename and modify spec file to use match the others in the repository
 prereq: serpent numpy pybind11
 web: flask werkzeug click jinja2 markupsafe requests idna certifi github-flask pyparsing bibtexparser biplist pymysql chardet urllib3 itsdangerous
-general: astropy astroquery astroplan scipy jsonschema keyring skyfield sgp4 jplephem sep pyds9 pyro4 photutils pillow pyephem pyserial six strict-rfc3339 sysv_ipc demjson mpmath sympy sip_tpv pytesseract
+general: astropy astroquery astroplan scipy jsonschema keyring skyfield sgp4 jplephem sep pyds9 pyro4 photutils pillow pyephem pyserial six strict-rfc3339 sysv_ipc demjson mpmath sympy sip_tpv pytesseract pcomfortcloud
 
 numpy:
 	echo 'Packaging numpy' && echo -en "travis_fold:start:numpy"
@@ -335,3 +335,12 @@ urllib3:
 	${RPMBUILD} -ba python3-urllib3.spec
 	mv build/noarch/*.rpm .
 	rm -rf build
+
+pcomfortcloud:
+	echo 'Packaging pcomfortcloud' && echo -en "travis_fold:start:pcomfortcloud"
+	mkdir -p build
+	${RPMBUILD} -ba python3-pcomfortcloud.spec
+	mv build/noarch/*.rpm .
+	rm -rf build
+	echo -en "\ntravis_fold:end:pcomfortcloud\r"
+
