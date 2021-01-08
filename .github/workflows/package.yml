@@ -4,10 +4,11 @@ on:
   push:
     branches:
       - master
+      - gh-actions
 
 jobs:
-  linux:
-    name: RPM Packaging
+  prereqs:
+    name: Package Prerequisites
     runs-on: ubuntu-20.04
     container: centos:centos7
     steps:
@@ -15,10 +16,75 @@ jobs:
         run: |
           # CentOS 7's git version is too old for the checkout action so fetch from ius instead
           yum -y install https://repo.ius.io/ius-release-el7.rpm https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-          yum -y install git224 rpm-build rpm-sign rsync make gcc gcc-c++ gcc-gfortran wget unzip libquadmath libXt-devel libjpeg-devel zlib-devel freetype-devel atlas-devel lapack-devel openblas-devel openblas lapack python3-rpm-macros python3 python36-devel python3-setuptools
+          yum -y install git224 rpm-build rsync make gcc gcc-c++ gcc-gfortran wget unzip libquadmath libXt-devel libjpeg-devel zlib-devel freetype-devel atlas-devel lapack-devel openblas-devel openblas lapack python3-rpm-macros python3 python36-devel python3-setuptools
 
       - name: Clone Repository
         uses: actions/checkout@v2
+
+      - name: Package Prereqs
+        run:
+          make serpent numpy pybind11
+
+      - name: Store Prereqs
+        uses: actions/upload-artifact@v2
+        with:
+          name: prereqs
+          retention-days: 1
+          path: |
+            *.rpm
+
+  package:
+    name: Package ${{ matrix.target }}
+    needs: prereqs
+    runs-on: ubuntu-20.04
+    container: centos:centos7
+    strategy:
+       matrix:
+         target: [flask, werkzeug, click, jinja2, markupsafe, requests, idna, certifi, github-flask, pyparsing, bibtexparser, biplist, pymysql, chardet, urllib3, itsdangerous, astropy, astroquery, astroplan, scipy, jsonschema, keyring, skyfield, sgp4, jplephem, sep, pyds9, pyro4, photutils, pillow, pyephem, pyserial, six, strict-rfc3339, sysv_ipc, demjson, mpmath, sympy, sip_tpv, pytesseract, pcomfortcloud]
+    steps:
+      - name: Download Prereqs
+        uses: actions/download-artifact@v2
+        with:
+          name: prereqs
+
+      - name: Install Dependencies
+        run: |
+          # CentOS 7's git version is too old for the checkout action so fetch from ius instead
+          yum -y install https://repo.ius.io/ius-release-el7.rpm https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+          yum -y install git224 rpm-build rsync make gcc gcc-c++ gcc-gfortran wget unzip libquadmath libXt-devel libjpeg-devel zlib-devel freetype-devel atlas-devel lapack-devel openblas-devel openblas lapack python3-rpm-macros python3 python36-devel python3-setuptools
+          rpm -i python3-numpy-*.rpm
+          rpm -i python3-pybind11-*.rpm
+          rpm -i python3-serpent-*.rpm
+
+      - name: Clone Repository
+        uses: actions/checkout@v2
+
+      - name: Package RPM
+        run:
+          make ${{ matrix.target }}
+
+      - name: Store RPM
+        uses: actions/upload-artifact@v2
+        with:
+          name: packages
+          retention-days: 1
+          path: |
+            *.rpm
+
+  upload:
+    name: Push Packages
+    needs: package
+    runs-on: ubuntu-20.04
+    container: centos:centos7
+    steps:
+      - name: Install Dependencies
+        run: |
+          # CentOS 7's git version is too old for the checkout action so fetch from ius instead
+          yum -y install https://repo.ius.io/ius-release-el7.rpm https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+          yum -y install git224 rpm-build rpm-sign
+
+      - name: Download Packages
+        uses: actions/download-artifact@v2
 
       - name: Clone Package Repository
         uses: actions/checkout@v2
@@ -27,24 +93,8 @@ jobs:
           token: ${{ secrets.DEPLOY_TOKEN }}
           path: centos-packages
 
-      - name: Package Prereqs
-        run:
-          make prereq
-
-      - name: Install Prereqs
-        run: |
-          echo "in directory" $(pwd)
-          echo "dir contents" $(ls)
-          rpm -i python3-numpy-*.rpm
-          rpm -i python3-pybind11-*.rpm
-          rpm -i python3-serpent-*.rpm
-
-      - name: Package RPMs
-        run:
-          make general web
-
       - name: Push Packages
         env:
           RPM_SIGNING_KEY: ${{ secrets.RPM_SIGNING_KEY }}
         run: |
-          centos-packages/sign-and-push-packages.sh *.rpm
+          centos-packages/sign-and-push-packages.sh */*.rpm
